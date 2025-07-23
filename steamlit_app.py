@@ -1,8 +1,14 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+
+# Line below is commented because its NOT needed in Streamlit OG
+#from snowflake.snowpark.context import get_active_session
+
 from snowflake.snowpark.functions import col
 
+# Lines below are NEEDED for Streamlit OG
+cnx = st.connection "snowflake")
+session = cnx.session()
 
 # Write title of app directly to the app
 st.title(f":cup_with_straw: Customize Your Smootie :cup_with_straw:")
