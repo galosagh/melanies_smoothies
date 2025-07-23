@@ -7,7 +7,7 @@ import streamlit as st
 from snowflake.snowpark.functions import col
 
 # Lines below are NEEDED for Streamlit OG
-cnx = st.connection "snowflake")
+cnx = st.connection("snowflake")
 session = cnx.session()
 
 # Write title of app directly to the app
