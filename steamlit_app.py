@@ -1,5 +1,6 @@
 # Import python packages
 import streamlit as st
+import requests
 
 # Line below is commented because its NOT needed in Streamlit OG
 #from snowflake.snowpark.context import get_active_session
@@ -44,6 +45,9 @@ if ingredients_list:
     for fruit_chosen in ingredients_list:
         # below means  "add fruit to what is already in the variable"
         ingredients_string += fruit_chosen + ' '
+        st.subheader(fruit_chosen + ' Nutrition Information')
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
+        st_dt = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
     # output the variable
     #st.write(ingredients_string)
